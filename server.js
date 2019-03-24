@@ -1,12 +1,18 @@
 const http = require("http");
 const express = require("express");
+const path = require("path");
 const app = express();
 const appModule = require("./app");
 const expressRouter = express.Router();
 const appRouter = require('express').Router({mergeParams: true});
+const chartScript = require("./scripts/chart-script");
 
 appRouter.get("/data", (req, res) => {
-    res.json(appModule.sortData());
+    res.json(appModule.sortData()).status(200);
+});
+
+appRouter.get("/stats", (req, res) => {
+    res.send(chartScript.sortChartData()).status(200);
 });
 
 appRouter.get("/", (req, res) => {

@@ -1,15 +1,14 @@
-module.exports = function ChartScript() {
+const app = require("../app");
+const UI_MODES = require("../constants/ui-modes.constant");
 
-    return {
-        buildChartFromData: (data) => {
-            // TODO: doing things with data
-        },
-        scrollChartView: () => {
-            // TODO: scroll data on the left or right
-        },
-        getTimeStampDataMatch: (dataItemsLen, dataSlice) => {
-
-            const match = dataSlice / dataItemsLen;
-        }
+module.exports = {
+    sortChartData: () => {
+        return app.data();
+    },
+    calculatePercentage: (count, elemsLen) => {
+        return count / elemsLen;
+    },
+    switchMode() {
+        console.log(UI_MODES);
     }
 };
