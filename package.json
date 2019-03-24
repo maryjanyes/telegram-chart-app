@@ -1,0 +1,17 @@
+{
+    "name": "telegram-chart-contest",
+    "author": "Marianna Yasko",
+    "private": false,
+    "engines": {
+        "node": "6.0"
+    },
+    "main": "server.js",
+    "scripts": {
+        "start": "npm run nodemon",
+        "nodemon": "nodemon -V"
+    },
+    "dependencies": {
+        "express": "4.16.4",
+        "nodemon": "1.18.10"
+    }
+}
