@@ -50,8 +50,8 @@
         margin-top: 80%;
         height: 68px;
         position: relative;
-        top: 2px;
-        border: 1px solid black;
+        top: 5px;
+        border: 1px solid lightgray;
       }
 
       .daily-stats-frame {
@@ -178,8 +178,6 @@
         this.frameDOM = this.buildFrameBody(initialDay);
       }
 
-      frameDOM;
-
       buildFrameBody(initialDay) {
         const body = document.createElement("div");
         body.innerHTML = `
@@ -241,9 +239,6 @@
         };
       }
 
-      chipsStyle;
-      chips;
-
       buildChipDOM({ tag, className, text }) {
         const elem = document.createElement(tag);
         elem.className = className;
@@ -263,8 +258,6 @@
         };
         this.frameSnapshotDOM = this.buildFrameAsSnapshotFromDOM(initialChartDOM);
       }
-
-      frameSnapshotDOM;
 
       buildFrameAsSnapshotFromDOM(dom) {
 
@@ -309,8 +302,6 @@
           this.toggleMode();
         });
       }
-
-      modes;
 
       toggleMode() {
         this.activeMode === MODES.light ? (() => {
