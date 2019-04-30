@@ -7,16 +7,177 @@
     <style>
         #chart-app {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
+            max-width: 1520px;
+            overflow-x: scroll;
+            transform: scaleY(0.8);
+            position: absolute;
+            top: -785px;
+        }
+        #wrapper-LINE_CHART {
+            position: relative;
+        }
+        /* Chart App styles */
+
+        .wrapper {
+            width: 550px;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin: auto;
+            background-color: whitesmoke;
+        }
+
+        .charts-wrapper {
+            width: 550px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            z-index: 100;
+            position: fixed;
+        }
+
+        .wrapper .stats-chart {
+            margin: auto;
+            position: absolute;
+            left: -118px;
+        }
+
+        .wrapper .stats-chart-lines {
+            margin: 55px 22px;
+        }
+
+        .wrapper .wrapper-title {
+            padding: 0 40px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .stats-chips {
+            position: absolute;
+            margin-top: 20px;
+            left: 40px;
+            display: flex;
+        }
+
+        .stats-frame {
+            max-width: 100%;
+            margin-top: 80%;
+            height: 68px;
+            position: relative;
+            top: 2px;
+            border: 1px solid black;
+        }
+
+        .daily-stats-frame {
+            position: absolute;
+            background-color: #ffffff;
+            padding: 20px 10px;
+            border-radius: 20px;
+            text-align: center;
+            z-index: 500;
+            left: 20%;
+            top: 80px;
+        }
+
+        .daily-stats-frame .stats-text {
+            display: flex;
+            margin: 2px 10px;
+        }
+
+        .daily-stats-frame .stats-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .daily-stats-frame .stats-text .stats-text-block {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+
+        .stats-text .stats-text-block.Joined {
+            color: green;
+        }
+
+        .stats-text .stats-text-block.Left {
+            color: red;
+        }
+
+        .mode-switcher {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
             width: 100%;
+            padding: 40px 0 20px 0;
+        }
+
+        .label-chip {
+            padding: 12px 40px 2px 40px;
+            margin: 0 20px 0 0;
+            font-size: 14px;
+            border-radius: 28px;
+            border: 1px solid lightgray;
+            display: flex;
+        }
+
+        .label-chip .chip-circle {
+            position: relative;
+            left: -30px;
+            top: -5px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            background-image: url(https://image.flaticon.com/icons/svg/60/60731.svg);
+            background-repeat: no-repeat;
+            background-size: 60%;
+            background-position: center;
+        }
+
+        .label-chip .chip-circle.Joined {
+            background-color: green;
+        }
+
+        .label-chip .chip-circle.Left {
+            background-color: red;
+        }
+
+        .label-chip .chip-title {
+            font-size: 14px;
+            color: gray;
+            position: relative;
+            left: 0;
+        }
+
+        .charts-wrapper::-webkit-scrollbar {
+            background: white;
+            height: 2vh;
+            cursor: pointer;
+        }
+
+        #switcher-link {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #chart-lines-LINE_CHART {
+            position: absolute;
+            top: 0;
+            left: 118px;
         }
     </style>
     <script>
         const app = ChartApp("#chart-app");
-        app.activate();
+        setTimeout(() => {
+            app.activate();
+        }, 1000);
     </script>
 </head>
     <body>
-    <div id="chart-app"></div>
+       <div id="chart-app"></div>
+       <div class="line-chart-chips"></div>
+       <div class="line-chart-daily-stats-frame"></div>
     </body>
 </html>
